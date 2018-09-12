@@ -223,6 +223,87 @@ void print_area(Rectangle &rectangle) {
               << ", Actual area: " << rectangle.area();
 }
 
+// INTERFACE SEGREGATION PRINCIPLE.
+
+class Document {
+    //...
+};
+
+class IMachine { // Seems reasonable, but can lead to ISP violation if a device can't do all three.
+public:
+    virtual void print(const Document &doc) = 0;
+    virtual void scan(const Document &doc) = 0;
+    virtual void fax(const Document &doc) = 0;
+};
+
+class OkayMultiFunctionPrinter : public IMachine {
+public:
+    void print(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+
+    void scan(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+
+    void fax(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+};
+
+class BadScanner : public IMachine {
+public:
+    void print(const Document &doc) override {
+        // Violates ISP: doesn't make sense for a scanner.
+    }
+
+    void scan(const Document &doc) override {
+        // Makes sense for a scanner.
+    }
+
+    void fax(const Document &doc) override {
+        // Violates ISP: doesn't make sense for a scanner.
+    }
+};
+
+class IPrinter {
+public:
+    virtual void print(const Document &doc) = 0;
+};
+
+class IScanner {
+public:
+    virtual void scan(const Document &doc) = 0;
+};
+
+class IFax {
+public:
+    virtual void fax(const Document &doc) = 0;
+};
+
+class IMultiMachine : public IPrinter, public IScanner, public IFax {};
+
+class GoodMultiFunctionPrinter : public IMultiMachine {
+    void print(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+
+    void scan(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+
+    void fax(const Document &doc) override {
+        // Makes sense for MFP.
+    }
+};
+
+class GoodScanner : public IScanner {
+public:
+    void scan(const Document &doc) override {
+        // Makes sense for a scanner.
+    }
+};
+
 // MAIN.
 
 int main() {
@@ -265,6 +346,8 @@ int main() {
     Square square(5);
     print_area(square); // Bad: violates LSP.
     std::cout << std::endl << std::endl;
+
+    // Interface segragation principle: keep interfaces concise.
 
     return 0;
 }
