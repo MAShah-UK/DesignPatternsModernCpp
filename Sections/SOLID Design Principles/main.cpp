@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <tuple>
 
 // HELPERS.
 
@@ -304,6 +305,67 @@ public:
     }
 };
 
+// DEPENDENCY INVERSION PRINCIPLE.
+
+enum class Relationship {
+    parent,
+    child,
+    sibling
+};
+
+struct Person {
+    std::string name;
+};
+
+class RelationshipBrowser {
+public:
+    virtual std::vector<Person> find_all_children_of(const std::string &name) const = 0;
+};
+
+class Relationships : public RelationshipBrowser  { // Low-level module.
+    std::vector<std::tuple<Person, Relationship, Person>> relations;
+public:
+    const std::vector<std::tuple<Person, Relationship, Person>> &get_relations() const {
+        return relations;
+    }
+
+    void add_parent_and_child(const Person &parent, const Person &child) {
+        relations.emplace_back(parent, Relationship::parent, child);
+        relations.emplace_back(child, Relationship ::child, parent);
+    }
+
+    std::vector<Person> find_all_children_of(const std::string &name) const override {
+        std::vector<Person> result;
+        for(const auto &[first, rel, second] : relations) {
+            if(first.name == name && rel == Relationship::parent) {
+                result.push_back(second);
+            }
+        }
+        return result;
+    }
+};
+
+class Research { // High-level module.
+public:
+    // Violates DIP: high-level concept depends on low-level module.
+    // The problem is that if anything changes within the low-level module,
+    // the high-level concept is no longer valid.
+    Research(const Relationships &relationships) {
+        const auto &relations = relationships.get_relations();
+        for(const auto &[first, rel, second] : relations) {
+            if(first.name == "John" && rel == Relationship::parent) {
+                std::cout << "John has a child called " << second.name << ". ";
+            }
+        }
+    }
+
+    Research(const RelationshipBrowser &browser) {
+        for(const auto &child : browser.find_all_children_of("John")) {
+            std::cout << "John has a child called " << child.name << ". ";
+        }
+    }
+};
+
 // MAIN.
 
 int main() {
@@ -347,7 +409,19 @@ int main() {
     print_area(square); // Bad: violates LSP.
     std::cout << std::endl << std::endl;
 
-    // Interface segragation principle: keep interfaces concise.
+    // Interface segregation principle: keep interfaces concise.
+    // Covered above.
+
+    // Dependency inversion principle: high-level and low-level modules should depend on abstractions.
+    Person parent{"John"};
+    Person child1{"Chris"}, child2{"Matt"};
+    Relationships relationships;
+    relationships.add_parent_and_child(parent, child1);
+    relationships.add_parent_and_child(parent, child2);
+    Research bad_research(relationships);
+    std::cout << std::endl;
+    Research good_research(relationships);
+    std::cout << std::endl;
 
     return 0;
 }
