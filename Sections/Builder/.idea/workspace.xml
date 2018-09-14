@@ -13,9 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40056de1-70dd-4cd3-aa5a-854216bdaab4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../Notes/DesignPatternsModernCpp.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/DesignPatternsModernCpp.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.h" beforeDir="false" afterPath="$PROJECT_DIR$/Person.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,6 +26,7 @@
     <session id="176737963">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -247,12 +245,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536837480882</updated>
-      <workItem from="1536837483497" duration="23836000" />
+      <workItem from="1536837483497" duration="24477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23836000" />
+    <option name="totallyTimeSpent" value="24477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-8" width="1864" height="1096" extended-state="6" />
@@ -268,7 +266,7 @@
       <window_info anchor="bottom" id="Messages" order="4" weight="0.32952183" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.32952183" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
