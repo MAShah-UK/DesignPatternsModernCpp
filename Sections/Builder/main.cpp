@@ -160,3 +160,29 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: use builder design pattern.
+class CodeBuilder {
+    friend ostream& operator<<(ostream &os, const CodeBuilder &obj) {
+        os << "class " << obj.class_name << endl
+           << "{" << endl;
+        for(pair<string, string> field : obj.fields) {
+            os << string(obj.indent, ' ') << field.second << " " << field.first << ';' << endl;
+        }
+        os << "};";
+        return os;
+    }
+
+    static constexpr int indent = 2;
+    string class_name;
+    vector<pair<string,string>> fields;
+public:
+    CodeBuilder(const string &class_name)
+        : class_name{class_name} { }
+    CodeBuilder &add_field(const string &name, const string &type) {
+        fields.push_back(make_pair(name, type));
+        return *this;
+    }
+};
+ */
