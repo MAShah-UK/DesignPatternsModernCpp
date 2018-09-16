@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb3bc969-8e8a-4a62-88a2-86f2a7fe79a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,6 +26,7 @@
     <session id="-144064058">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.opened" value="3" />
@@ -218,12 +217,12 @@
       <updated>1536935040160</updated>
       <workItem from="1536935042978" duration="4500000" />
       <workItem from="1536962275776" duration="3047000" />
-      <workItem from="1537015932780" duration="3405000" />
+      <workItem from="1537015932780" duration="3669000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10952000" />
+    <option name="totallyTimeSpent" value="11216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
