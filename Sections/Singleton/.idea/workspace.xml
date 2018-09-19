@@ -3,10 +3,10 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="Singleton" targetName="Singleton" />
-      <config projectName="Singleton" targetName="gmock" />
       <config projectName="Singleton" targetName="gtest_main" />
-      <config projectName="Singleton" targetName="gmock_main" />
+      <config projectName="Singleton" targetName="gmock" />
       <config projectName="Singleton" targetName="gtest" />
+      <config projectName="Singleton" targetName="gmock_main" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -15,9 +15,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abd863d8-eaf3-4856-ae43-27a6e29776da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="abd863d8-eaf3-4856-ae43-27a6e29776da" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +28,12 @@
     <session id="198906928">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -83,7 +82,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="710">
               <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -221,6 +220,7 @@
       <workItem from="1537121453459" duration="2994000" />
       <workItem from="1537187344584" duration="12310000" />
       <workItem from="1537267817744" duration="4622000" />
+      <workItem from="1537357463692" duration="610000" />
     </task>
     <servers />
   </component>
@@ -248,13 +248,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19926000" />
+    <option name="totallyTimeSpent" value="20536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25689086" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2596472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32952183" />
@@ -297,7 +297,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
+        <state relative-caret-position="710">
           <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
