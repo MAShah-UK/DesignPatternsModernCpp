@@ -1,60 +1,36 @@
 #include <iostream>
 #include <vector>
+#include "Graphic.h"
+#include "Neuron.h"
 
-class Graphic {
-public:
-    virtual void draw() = 0;
-};
-
-class Renderer {
-public:
-    void draw_to_screen(Graphic *graphic) {
-        graphic->draw();
-    }
-};
-
-class Circle : public Graphic {
-public:
-    void draw() override {
-        std::cout << "Circle" << std::endl;
-    }
-};
-
-// Composite design pattern allows working with a group of graphics
-// as if they were just one object, and vice versa.
-// Any method that expects a Graphic may receive a single
-// Circle object, or a group of graphics, and it'll treat them the same.
-class Group : public Graphic {
-    std::string name;
-    std::vector<Graphic*> graphics;
-public:
-    Group(const std::string &name) : name{name} {}
-
-    void draw() override {
-        std::cout << "Group " << name << " contains: " << std::endl;
-        for(const auto &graphic : graphics) {
-            graphic->draw();
-        }
-    }
-
-    void add_graphic(Graphic *graphic) {
-        graphics.push_back(graphic);
-    }
-};
-
-int main() {
-    Group root("root");
+void use_graphics() {
+    GraphicsGroup root("root");
 
     Circle c1, c2;
     root.add_graphic(&c1);
     root.add_graphic(&c2);
 
-    Group subgroup("subgroup");
+    GraphicsGroup subgroup("subgroup");
     Circle c3;
     subgroup.add_graphic(&c3);
     root.add_graphic(&subgroup);
 
-    root.draw();
+    Renderer renderer;
+    renderer.draw_to_screen(&root); // Can pass one graphic, or a group of graphics.
+}
+
+void use_neurons() {
+    Neuron n1, n2;
+    n1.connect_to(n2);
+    std::cout << n1 << n2 << std::endl;
+
+    NeuronLayer layer1 {2}, layer2{3};
+}
+
+int main() {
+    use_graphics();
+    std::cout << std::endl;
+    use_neurons();
 
     return 0;
 }
