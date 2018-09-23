@@ -7,14 +7,7 @@ template <typename Self>
 class SomeNeurons {
 public:
     template <typename T>
-    void connect_to(T &other) {
-        for(Neuron &from : *static_cast<Self*>(this)) {
-            for(Neuron &to : other) {
-                from.out.push_back(&other);
-                to.in.push_back(from);
-            }
-        }
-    }
+    void connect_to(T &other);
 };
 
 class Neuron : public SomeNeurons<Neuron> {
@@ -43,9 +36,11 @@ public:
         return this+1;
     }
 
-    void connect_to(Neuron &other) {
-        out.push_back(&other);
-        other.in.push_back(this);
+    void add_connection_in(Neuron *neuron) {
+        in.push_back(neuron);
+    }
+    void add_connection_out(Neuron *neuron) {
+        out.push_back(neuron);
     }
 };
 
@@ -54,13 +49,15 @@ class NeuronLayer : public SomeNeurons<NeuronLayer> { // Collection of neurons.
         for(const Neuron * const n: obj.neurons) {
             std::cout << *n;
         }
+        return os;
     }
 
     std::vector<Neuron*> neurons;
 public:
     NeuronLayer(int count) {
         while(count --> 0) { // count-- > 0, but --> can be seen as tends to.
-            neurons.emplace_back(Neuron{});
+            Neuron neuron;
+            neurons.emplace_back(&neuron);
         }
     }
 
@@ -71,3 +68,14 @@ public:
         return neurons.end();
     }
 };
+
+template <typename Self>
+template <typename T>
+void SomeNeurons<Self>::connect_to(T &other) {
+    for(Neuron &from : *static_cast<Self*>(this)) {
+        for(Neuron &to : other) {
+            from.add_connection_in(&other);
+            to.add_connection_out(&from);
+        }
+    }
+}

@@ -3,4 +3,4 @@ project(Composite)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Composite main.cpp Graphic.h Neuron.h)
+add_executable(Composite main.cpp Graphic.h Neuron.h CRTP.h)
