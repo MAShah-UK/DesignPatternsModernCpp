@@ -3,4 +3,4 @@ project(Flyweight)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Flyweight main.cpp)
+add_executable(Flyweight main.cpp User.h Flyweight.h)
