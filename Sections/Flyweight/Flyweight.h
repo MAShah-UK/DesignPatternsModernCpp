@@ -1,3 +1,6 @@
+#include <memory>
+#include <set>
+
 // Use singleton instead of static data members
 // because static data isn't inherited, it's
 // shared. This breaks encapsulation.
@@ -33,11 +36,15 @@ public:
         return Singleton<FlyweightBase<T>>::get_instance();
     }
 
-    // Inserts data in the set if it's unique, eitherway it'll return the iterator.
+    const auto& get_data() const {
+        return data;
+    }
+
+    // Inserts data in the set if it's unique, regardless it'll return the iterator.
     // Universal reference supports l/r-values.
-    static auto get(T&& arg) {
+    static auto get(T &&arg) {
         auto& data_set {get_instance().data};
-        auto arg_ptr {make_shared<T>(std::forward<T>(arg))};
+        auto arg_ptr {std::make_shared<T>(std::forward<T>(arg))};
         auto pair = data_set.insert(arg_ptr);
         return pair.first;
     }
@@ -48,10 +55,30 @@ public:
 template <typename T>
 class Flyweight {
     FlyweightBase<T>& base;
+    decltype(base.get_data().begin()) iterator;
 public:
-    Flyweight() : base{FlyweightBase<T>::get_instance()} {}
+    Flyweight(T&& arg)
+        : base{FlyweightBase<T>::get_instance()},
+          iterator{base.get(std::forward<T>(arg))} {}
 
-    auto get(T&& arg) {
-        return base.get(std::forward<T>(arg));
+    operator T() const {
+        return get();
+    }
+
+    static size_t unique_count() {
+        return FlyweightBase<T>::get_instance().get_data().size();
+    };
+
+    const T& get() const {
+        return **iterator;
+    }
+    void set(T&& arg) {
+        iterator = base.get(std::forward<T>(arg));
     }
 };
+
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const Flyweight<T> &obj) {
+    os << obj.get();
+    return os;
+}

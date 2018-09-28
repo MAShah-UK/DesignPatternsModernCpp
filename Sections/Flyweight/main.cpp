@@ -1,5 +1,6 @@
 #include <iostream>
 #include "User.h"
+#include "Flyweight.h"
 
 void create_users() {
     // Inefficient - duplicates data in memory.
@@ -14,11 +15,20 @@ void create_users() {
     FWUser fwUser2{"Jane", "Doe"};
     std::cout << "Unique names: " << FWUser::unique_names() << std::endl
               << "FWUser 1: " << fwUser1.get_name() << std::endl
-              << "FWUser 2: " << fwUser2.get_name() << std::endl;
+              << "FWUser 2: " << fwUser2.get_name() << std::endl << std::endl;
+}
+
+void use_flyweight() {
+    Flyweight<std::string> name1{"John"}, name2{"Max"}, name3{"Linda"}, name4{"Max"};
+    std::cout << "Four strings were added to flyweight: "
+              << name1 << " " << name2 << " " << name3 << " " << name4 << std::endl
+              << "Of these names, 3 should be unique: "
+                << Flyweight<std::string>::unique_count() << std::endl << std::endl;
 }
 
 int main() {
     create_users();
+    use_flyweight();
 
     return 0;
 }
