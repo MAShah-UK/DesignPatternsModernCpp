@@ -1,5 +1,5 @@
 #include <memory>
-#include <set>
+#include <unordered_set>
 
 // Use singleton instead of static data members
 // because static data isn't inherited, it's
@@ -27,23 +27,35 @@ class FlyweightBase : public Singleton<FlyweightBase<T>> { // CRTP.
     friend class Singleton<FlyweightBase<T>>;
 
     // Use smart pointers for polymorphism.
-    std::set<std::shared_ptr<T>> data;
+    // Unordered set more efficient.
+    class ptr_hash{
+    public:
+        size_t operator()(std::shared_ptr<T> ptr) const {
+            return std::hash<T>()(*ptr);
+        }
+    };
+    class ptr_equality {
+    public:
+        bool operator()(std::shared_ptr<T> ptr1, std::shared_ptr<T> ptr2) const {
+            T one = *ptr1;
+            T two = *ptr2;
+            return *ptr1 == *ptr2;
+        }
+    };
+    std::unordered_set<std::shared_ptr<T>,
+                       ptr_hash, // std::hash<std::shared_ptr<T>> - doesn't work oddly.
+                       ptr_equality> data;
 
     FlyweightBase() = default;
 public:
-    // Needs to be overloaded to prevent compile-time template error.
-    static FlyweightBase<T>& get_instance() {
-        return Singleton<FlyweightBase<T>>::get_instance();
-    }
-
     const auto& get_data() const {
         return data;
     }
 
     // Inserts data in the set if it's unique, regardless it'll return the iterator.
     // Universal reference supports l/r-values.
-    static auto get(T &&arg) {
-        auto& data_set {get_instance().data};
+    auto get(T&& arg) {
+        auto& data_set {Singleton<FlyweightBase<T>>::get_instance().data};
         auto arg_ptr {std::make_shared<T>(std::forward<T>(arg))};
         auto pair = data_set.insert(arg_ptr);
         return pair.first;
@@ -65,6 +77,7 @@ public:
         return get();
     }
 
+    // Intended for debugging/testing, not strictly required.
     static size_t unique_count() {
         return FlyweightBase<T>::get_instance().get_data().size();
     };

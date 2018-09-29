@@ -21,9 +21,14 @@ void create_users() {
 void use_flyweight() {
     Flyweight<std::string> name1{"John"}, name2{"Max"}, name3{"Linda"}, name4{"Max"};
     std::cout << "Four strings were added to flyweight: "
-              << name1 << " " << name2 << " " << name3 << " " << name4 << std::endl
+                << name1 << " " << name2 << " " << name3 << " " << name4 << std::endl
               << "Of these names, 3 should be unique: "
-                << Flyweight<std::string>::unique_count() << std::endl << std::endl;
+                << Flyweight<std::string>::unique_count() << std::endl;
+    Flyweight<int> age1{15}, age2{20}, age3{15}, age4{20};
+    std::cout << "Their ages are: " << age1 << " " << age2 << " " << age3
+              << " " << age4 << std::endl
+              << "Of these ages, 2 should be unique: " << Flyweight<int>::unique_count()
+                << std::endl << std::endl;
 }
 
 int main() {
