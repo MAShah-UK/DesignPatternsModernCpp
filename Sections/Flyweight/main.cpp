@@ -37,3 +37,42 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: use flyweight design pattern.
+struct Sentence {
+    struct WordToken {
+        string word;
+        bool capitalize {};
+    };
+
+    vector<WordToken> tokens;
+
+    Sentence(const string& text) {
+        istringstream iss{text};
+        string word;
+        while(!iss.eof()) {
+            iss >> word;
+            tokens.emplace_back(WordToken{word, false});
+        }
+    }
+
+    WordToken& operator[](size_t index) {
+        return tokens[index];
+    }
+
+    string str() const {
+        static auto upper = [](char c) { return toupper(c); };
+        static auto lower = [](char c) { return tolower(c); };
+
+        string output;
+        for(const WordToken& token : tokens) {
+            string word{token.word};
+            transform(word.begin(), word.end(), word.begin(),
+                (token.capitalize ? upper : lower));
+            output = output + word + " ";
+        }
+        return output.substr(0, output.size()-1);
+    }
+};
+ */
