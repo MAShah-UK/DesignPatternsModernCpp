@@ -151,3 +151,34 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: Use command design pattern.
+struct Command {
+    enum Action { deposit, withdraw } action;
+    int amount{0};
+    bool success{false};
+};
+
+struct Account {
+    int balance{0};
+
+    void process(Command& cmd) {
+        switch(cmd.action) {
+            case Command::deposit: {
+                balance += cmd.amount;
+                cmd.success = true;
+                break;
+            }
+            case Command::withdraw: {
+                int new_balance{balance - cmd.amount};
+                cmd.success = (new_balance > 0);
+                if(cmd.success) {
+                    balance = new_balance;
+                }
+                break;
+            }
+        }
+    }
+};
+ */
