@@ -4,16 +4,15 @@
 #include <memory>
 
 class Token {
+public:
     friend std::ostream& operator<<(std::ostream& os, const Token& token) {
         os << '\'' << token.text << '\'';
         return os;
     }
-public:
-    enum Type {integer, plus, minus, lparen, rparen};
-private:
-    Type type;
+
+    enum Type {integer, plus, minus, lparen, rparen} type;
     std::string text;
-public:
+
     Token(Type type, const std::string& text)
             : type{type}, text{text} {}
 };
@@ -32,8 +31,8 @@ public:
     }
 };
 class BinaryOperation : public Element {
-    std::shared_ptr<Element> lhs, rhs;
 public:
+    std::shared_ptr<Element> lhs, rhs;
     enum Type {addition, subtraction} type;
 
     int eval() const override {
@@ -50,6 +49,7 @@ public:
 class ExpressionInterpreter {
     std::string exp;
     std::vector<Token> tokens;
+
 public:
     ExpressionInterpreter(const std::string& exp)
             : exp{exp} {
@@ -107,18 +107,38 @@ public:
             auto& token {tokens[i]};
             switch(token) {
                 case Token::integer: {
+                    int to_int = std::stoi(token.text);
+                    auto to_integer = std::make_shared<Integer>(to_int);
+                    if(!have_lhs) {
+                        result->lhs = to_integer;
+                        have_lhs = true;
+                    }
                     break;
                 }
                 case Token::plus: {
+                    result->type = BinaryOperation::addition;
                     break;
                 }
                 case Token::minus: {
+                    result->type = BinaryOperation::subtraction;
                     break;
                 }
                 case Token::lparen: {
-                    break;
-                }
-                case Token::rparen: {
+                    size_t j = i;
+                    for(; j < tokens.size(); ++j) {
+                        if(tokens[j].type == Token::rparen) {
+                            break;
+                        }
+                    }
+                    std::vector<Token> subexpression(&tokens[i+1], &tokens[j]);
+                    auto element = parse(subexpression);
+                    if(!have_lhs) {
+                        result->lhs = element;
+                        have_lhs = true;
+                    } else {
+                        result->rhs = element;
+                    }
+                    i = j;
                     break;
                 }
             }
@@ -129,5 +149,9 @@ public:
 int main() {
     ExpressionInterpreter exp{"(13-4)-(12+1)"};
     std::cout << exp.get_tokens() << std::endl;
+    try {
+        exp.parse();
+        std::cout
+    }
     return 0;
 }
