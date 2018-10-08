@@ -148,3 +148,94 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: Use interpreter design pattern.
+struct ExpressionProcessor {
+    struct Token {
+        enum Type {add, minus, integer, map} type;
+        string text;
+    };
+
+    struct Expression {
+        virtual ~Expression() = default;
+        virtual int eval() = 0;
+    }
+    struct Integer : Expression {
+        int value;
+        Integer(int value) value(value) {}
+        int eval() override { return value; }
+    }
+    struct BinaryExpression : Expression {
+        shared_ptr<Expression> lhs;
+        shared_ptr<Expression> rhs;
+
+    }
+
+    bool is_valid = true;
+    map<char,int> variables;
+    vector<Token> tokens;
+
+    void lex(const string& input) {
+        tokens.clear();
+        for(size_t i{}; i < input.size(); ++i) {
+            switch(input[i]) {
+                case '+': {
+                    tokens.emplace_back(Token{Token::add, '+'});
+                    break;
+                }
+                case '-': {
+                    tokens.emplace_back(Token{Token::minus, '-'});
+                    break;
+                }
+                default: {// Alphanumerics.
+                    if(!isalnum(input[i]) || i > 0 && (tokens[i-1].type == Token::integer || tokens[i-1].type == Token::map)) {
+                        is_valid = false;
+                        break;
+                    }
+                    if(isdigit(input[i])) {
+                        ostringstream buffer;
+                        buffer << input[i];
+                        for(i += 1; i < input.size(); ++i) {
+                            if(isdigit(input[i])) {
+                                buffer << input[i];
+                            } else {
+                                i -= 1;
+                                break;
+                            }
+                        }
+                    } else if(isalpha(input[i])) {
+                        tokens.emplace_back(Token{Token::map, input[i]});
+                    }
+                }
+            }
+        }
+        return tokens;
+    }
+    int parse() {
+        if(!is_valid) {
+            return 0;
+        }
+        for(const auto& token : tokens) {
+            switch(token.type) {
+                case Token::add: {
+                    break;
+                }
+                case Token::minus: {
+                    break;
+                }
+                case Token::integer: {
+                    break;
+                }
+                case Token::map: {
+                    break;
+                }
+            }
+        }
+    }
+    int calculate(const string& expression) {
+        lex(expression);
+        return parse();
+    }
+};
+ */
