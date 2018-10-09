@@ -151,26 +151,65 @@ int main() {
 
 /*
 Challenge: Use interpreter design pattern.
+#include <vector>
+#include <string>
+#include <map>
+#include <memory>
+#include <sstream>
+using namespace std;
+
+struct Expression {
+    virtual ~Expression() = default;
+    virtual int eval() const = 0;
+};
+struct Integer : Expression {
+    int value;
+    Integer(int value) : value(value) {}
+    int eval() const override { return value; }
+};
+struct BiExpression : Expression {
+private:
+    shared_ptr<Expression> lhs;
+    shared_ptr<Expression> rhs;
+
+    void is_valid_expression() {
+        if(lhs && rhs && op!=undef) {
+            lhs = make_unique<BiExpression>(*this);
+            rhs.reset();
+            op = undef;
+        }
+    }
+public:
+    enum Operator {undef, plus, minus} op = undef;
+
+    void set_operand(shared_ptr<Expression> expression) {
+        is_valid_expression();
+        if(!lhs) {
+            lhs = expression;
+        } else {
+            rhs = expression;
+        }
+    }
+    void set_operator(Operator op) {
+        is_valid_expression();
+        this->op = op;
+    }
+    int eval() const override {
+        int result;
+        if(op == plus) {
+            result = lhs->eval() + rhs->eval();
+        } else {
+            result = lhs->eval() - rhs->eval();
+        }
+        return result;
+    }
+};
+
 struct ExpressionProcessor {
     struct Token {
         enum Type {add, minus, integer, map} type;
         string text;
     };
-
-    struct Expression {
-        virtual ~Expression() = default;
-        virtual int eval() = 0;
-    }
-    struct Integer : Expression {
-        int value;
-        Integer(int value) value(value) {}
-        int eval() override { return value; }
-    }
-    struct BinaryExpression : Expression {
-        shared_ptr<Expression> lhs;
-        shared_ptr<Expression> rhs;
-
-    }
 
     bool is_valid = true;
     map<char,int> variables;
@@ -181,15 +220,16 @@ struct ExpressionProcessor {
         for(size_t i{}; i < input.size(); ++i) {
             switch(input[i]) {
                 case '+': {
-                    tokens.emplace_back(Token{Token::add, '+'});
+                    tokens.emplace_back(Token{Token::add, "+"});
                     break;
                 }
                 case '-': {
-                    tokens.emplace_back(Token{Token::minus, '-'});
+                    tokens.emplace_back(Token{Token::minus, "-"});
                     break;
                 }
                 default: {// Alphanumerics.
-                    if(!isalnum(input[i]) || i > 0 && (tokens[i-1].type == Token::integer || tokens[i-1].type == Token::map)) {
+                    if(!isalnum(input[i]) ||
+                       i > 0 && (tokens[i-1].type == Token::integer || tokens[i-1].type == Token::map)) {
                         is_valid = false;
                         break;
                     }
@@ -204,34 +244,43 @@ struct ExpressionProcessor {
                                 break;
                             }
                         }
+                        tokens.emplace_back(Token{Token::integer, buffer.str()});
                     } else if(isalpha(input[i])) {
-                        tokens.emplace_back(Token{Token::map, input[i]});
+                        tokens.emplace_back(Token{Token::map, string(1, input[i])});
                     }
                 }
             }
         }
-        return tokens;
     }
     int parse() {
         if(!is_valid) {
             return 0;
         }
+        auto result = make_unique<BiExpression>();
         for(const auto& token : tokens) {
             switch(token.type) {
                 case Token::add: {
+                    result->set_operator(BiExpression::plus);
                     break;
                 }
                 case Token::minus: {
+                    result->set_operator(BiExpression::minus);
                     break;
                 }
                 case Token::integer: {
+                    int to_int = stoi(token.text);
+                    auto to_integer = make_unique<Integer>(to_int);
+                    result->set_operand(move(to_integer));
                     break;
                 }
                 case Token::map: {
+                    auto integer = make_unique<Integer>(variables[token.text[0]]);
+                    result->set_operand(move(integer));
                     break;
                 }
             }
         }
+        return result->eval();
     }
     int calculate(const string& expression) {
         lex(expression);
