@@ -44,7 +44,7 @@ struct BinaryTree {
     Node<T>* root = nullptr;
 
     BinaryTree(Node<T>* root) : root(root) {
-        root->set_tree(*this);
+        root->set_tree(this);
     }
     virtual ~BinaryTree() {
         if(root) {
@@ -59,9 +59,44 @@ struct BinaryTree {
         PreOrderIterator(Node<U>* current) : current(current) {}
 
         bool operator!=(const PreOrderIterator<U>& other) {
-            
+            return current != other.current;
+        }
+
+        PreOrderIterator<U>& operator++() {
+            if(current->right) {
+                current = current->right;
+                while(current->left) {
+                    current = current->left;
+                }
+            } else {
+                Node<T>* p = current->parent;
+                while(p && current == p->right) {
+                    current = p;
+                    p = p->parent;
+                }
+                current = p;
+            }
+            return *this;
+        }
+
+        Node<U>& operator*() {
+            return *current;
         }
     };
+
+    using iterator = PreOrderIterator<T>;
+
+    iterator begin() { // Start from the left-most node on the tree.
+        Node<T>* current = this->root;
+        while(current->left) {
+            current = current->left;
+        }
+        return iterator(current);
+    }
+
+    iterator end() {
+        return iterator(nullptr);
+    }
 };
 
 void stl_iterator_basics() {
@@ -101,7 +136,27 @@ void stl_iterator_basics() {
     std::cout << std::endl;
 }
 void binary_tree_iterator() {
+    //        Me
+    //     /     \
+    //    F       M
+    //   / \     / \
+    //  FF FM   MF  MM
+    BinaryTree<std::string> family(
+        new Node<std::string>("Me",
+                new Node<std::string>("Father",
+                        new Node<std::string>("Father's Father"),
+                        new Node<std::string>("Father's Mother")),
+                new Node<std::string>("Mother",
+                        new Node<std::string>("Mother's Father"),
+                        new Node<std::string>("Mother's Mother"))
+        )
+    );
 
+    std::cout << "Tree contains: ";
+    for(auto it = family.begin(); it != family.end(); ++it) {
+        std::cout << (*it).value << ". ";
+    }
+    std::cout << std::endl;
 }
 
 int main() {
