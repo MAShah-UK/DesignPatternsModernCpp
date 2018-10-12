@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <experimental/coroutine>
+#include <experimenta/generator>
 
 template <typename T> struct BinaryTree;
 //   A
@@ -97,6 +99,22 @@ struct BinaryTree {
     iterator end() {
         return iterator(nullptr);
     }
+
+    experimental::generator<Node<T>*> post_order() { // Sets initial node to root for recursive call.
+        return post_order(root);
+    }
+private:
+    experimental::generator<Node<T>*> post_order(Node<T>* node) {
+        if(node) {
+            for(auto x : post_order(node->left)) {
+                co_yield x;
+            }
+            for(auto y : post_order(node->right)) {
+                co_yield y;
+            }
+            co_yield node;
+        }
+    }
 };
 
 void stl_iterator_basics() {
@@ -157,6 +175,11 @@ void binary_tree_iterator() {
         std::cout << (*it).value << ". ";
     }
     std::cout << std::endl;
+
+    // Use coroutines/recursion to iterate.
+    for(auto it : family.post_order()) {
+        std::cout << it->value << std::endl;
+    }
 }
 
 int main() {
