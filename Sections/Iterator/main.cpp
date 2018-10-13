@@ -188,3 +188,64 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: Use pre-order iteration for binary tree.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template <typename T>
+struct Node {
+    T value;
+    Node<T> *left{nullptr}, *right{nullptr}, *parent{nullptr};
+
+    Node(T value) : value(value) {}
+
+    Node(T value, Node<T> *left, Node<T> *right) : value(value), left(left), right(right) {
+      left->parent = right->parent = this;
+    }
+
+    // traverse the node and its children preorder
+    // and put all the results into `result`
+    void preorder_traversal(vector<Node<T>*>& result) {
+        // Set initial node to left-most node.
+        Node<T>* current = this;
+        while(current->parent) {
+            current = current->parent;
+        }
+        while(current->left) {
+            current = current->left;
+        }
+        result.push_back(current);
+        // Iteratively add all nodes to result vector.
+        bool traversed_to_root = false;
+        while(true) {
+             if(current->right) {
+                current = current->right;
+                while(current->left) {
+                    current = current->left;
+                }
+            } else if(current->parent && current != current->parent->right) {
+                current = current->parent;
+                result.push_back(current);
+                if(current->right) {
+                    current = current->right;
+                    while(current->left) {
+                        current = current->left;
+                    }
+                }
+            } else {
+                if(traversed_to_root) {
+                    break;
+                }
+                while(current->parent) {
+                    current = current->parent;
+                }
+                traversed_to_root = true;
+            }
+            result.push_back(current);
+        }
+    }
+};
+ */
