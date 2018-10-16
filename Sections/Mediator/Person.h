@@ -4,24 +4,21 @@
 #include <memory>
 #include <vector>
 
-class ChatRoom;
+class Chatroom;
 
 class Person {
     std::string name;
-    std::weak_ptr<ChatRoom> room;
+    std::shared_ptr<Chatroom> room;
     std::vector<std::string> chat_log;
 public:
     Person(const std::string &name);
 
-    bool operator==(const Person &rhs) const;
-    bool operator!=(const Person &rhs) const;
-
     const std::string& get_name() const;
-    void set_room(std::weak_ptr<ChatRoom> room);
+    void set_room(std::shared_ptr<Chatroom> room);
 
-    void say(const std::string& message) const;
+    void say(const std::string& message);
     void private_message(const std::string& who,
-                         const std::string& message) const;
+                         const std::string& message);
     void receive(const std::string& origin,
-                 const std::string& message) const;
+                 const std::string& message);
 };
