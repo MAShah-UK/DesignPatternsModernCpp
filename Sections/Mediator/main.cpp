@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Chatroom.h"
+#include "SportingMatch.h"
 
-int main() {
+void create_chatroom() {
     // Can't create Chatroom in stack memory due to enable_shared_from_this<>.
     auto room = std::make_shared<Chatroom>();
 
@@ -15,6 +16,21 @@ int main() {
     room->join(simon);
     simon->say("Hi everyone.");
     john->private_message("Simon", "Glad you found us.");
+}
+
+void score_goals() {
+    auto game = std::make_shared<Game>();
+    Player player("Sam", game);
+    Coach coach(game);
+    player.score();
+    player.score();
+    player.score();
+}
+
+int main() {
+    create_chatroom();
+    std::cout << std::endl;
+    score_goals();
 
     return 0;
 }
