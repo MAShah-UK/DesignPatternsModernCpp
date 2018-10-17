@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Mediator" targetName="Mediator" />
+      <config projectName="Memento" targetName="Memento" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,7 +11,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49152159-98f1-4c85-8011-d64de50c8f02" name="Default Changelist" comment="" />
+    <list default="true" id="fcb56562-2bca-4371-a69b-3164e41122af" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Notes/DesignPatternsModernCpp.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Notes/DesignPatternsModernCpp.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mediator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Mediator/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,38 +24,32 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FUSProjectUsageTrigger">
-    <session id="-233600579">
+    <session id="1760171661">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Mediator (disassembly)" value="3" />
-          <entry key="cpp" value="5" />
-          <entry key="h" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Disassembly" value="3" />
-          <entry key="ObjectiveC" value="18" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="2528" />
-          <entry key="h" value="3402" />
+          <entry key="cpp" value="1702" />
+          <entry key="h" value="941" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="5930" />
+          <entry key="ObjectiveC" value="2643" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="h" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="ObjectiveC" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -60,12 +57,12 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="795">
-                  <caret line="75" column="2" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="2" />
+                <state relative-caret-position="563">
+                  <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                   </folding>
@@ -76,15 +73,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/SportingMatch.h">
+            <entry file="file://$PROJECT_DIR$/BankAccount.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="880">
-                  <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+                <state relative-caret-position="591">
+                  <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
                   <folding>
-                    <element signature="e#14#31#0" expanded="true" />
-                    <element signature="e#102#112#0" expanded="true" />
+                    <element signature="e#14#32#0" expanded="true" />
+                    <element signature="e#469#909#1" />
                   </folding>
                 </state>
               </provider>
@@ -100,12 +97,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ChatRoom.cpp" />
-        <option value="$PROJECT_DIR$/Person.h" />
-        <option value="$PROJECT_DIR$/ChatRoom.h" />
-        <option value="$PROJECT_DIR$/Chatroom.cpp" />
-        <option value="$PROJECT_DIR$/Person.cpp" />
-        <option value="$PROJECT_DIR$/SportingMatch.h" />
+        <option value="$PROJECT_DIR$/StoredMemento.h" />
+        <option value="$PROJECT_DIR$/ExternalMemento.h" />
+        <option value="$PROJECT_DIR$/BankAccount.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -135,8 +129,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Mediator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mediator" type="462c0819:PsiDirectoryNode" />
+              <item name="Memento" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Memento" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -162,20 +156,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Mediator">
+  <component name="RunManager" selected="Application.Memento">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mediator" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Mediator" TARGET_NAME="Mediator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Mediator" RUN_TARGET_NAME="Mediator">
+    <configuration name="Memento" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Memento" TARGET_NAME="Memento" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Memento" RUN_TARGET_NAME="Memento">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Build All" />
-      <item itemvalue="Application.Mediator" />
+      <item itemvalue="Application.Memento" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -183,45 +177,42 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="49152159-98f1-4c85-8011-d64de50c8f02" name="Default Changelist" comment="" />
-      <created>1539618668842</created>
+      <changelist id="fcb56562-2bca-4371-a69b-3164e41122af" name="Default Changelist" comment="" />
+      <created>1539779001765</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1539618668842</updated>
-      <workItem from="1539618671628" duration="5734000" />
-      <workItem from="1539686255125" duration="9207000" />
-      <workItem from="1539704067452" duration="7535000" />
-      <workItem from="1539776818881" duration="1154000" />
+      <updated>1539779001765</updated>
+      <workItem from="1539779004584" duration="5410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23630000" />
+    <option name="totallyTimeSpent" value="5410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11300992" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24972437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" weight="0.32952183" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32952183" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="CMake" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32952183" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,63 +225,31 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/shared_ptr_base.h">
+    <entry file="file://$PROJECT_DIR$/StoredMemento.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="968" selection-start-line="968" selection-end-line="968" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Person.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Person.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Chatroom.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Chatroom.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/std_function.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="290" column="2" lean-forward="true" selection-start-line="290" selection-start-column="2" selection-end-line="290" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SportingMatch.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="57" selection-end-column="2" />
           <folding>
             <element signature="e#14#31#0" expanded="true" />
-            <element signature="e#102#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BankAccount.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+            <element signature="e#469#909#1" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="75" column="2" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="2" />
+        <state relative-caret-position="563">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
