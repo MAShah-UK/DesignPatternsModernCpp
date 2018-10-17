@@ -34,3 +34,44 @@ int main() {
 
     return 0;
 }
+
+/*
+Challenge: use mediator design pattern.
+#include <vector>
+using namespace std;
+
+struct IParticipant {
+    virtual ~IParticipant() = default;
+    virtual void say(int) const = 0;
+    virtual void receive(int) = 0;
+};
+
+struct Mediator {
+    vector<IParticipant*> participants;
+
+    void broadcast(const IParticipant* const origin, int value) {
+        for(auto participant : participants) {
+            if(participant != origin) {
+                participant->receive(value);
+            }
+        }
+    }
+};
+
+struct Participant : IParticipant {
+    int value{0};
+    Mediator& mediator;
+
+    Participant(Mediator& mediator) : mediator(mediator) {
+        mediator.participants.push_back(this);
+    }
+
+    void say(int value) const override {
+        mediator.broadcast(this, value);
+    }
+
+    void receive(int value) {
+        this->value += value;
+    }
+};
+ */
