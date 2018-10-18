@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Memento" targetName="Memento" />
+      <config projectName="Observer" targetName="Observer" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,7 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcb56562-2bca-4371-a69b-3164e41122af" name="Default Changelist" comment="" />
+    <list default="true" id="96dae59b-ad23-487a-b3dc-c439950346e6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Memento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,33 +23,32 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FUSProjectUsageTrigger">
-    <session id="1760171661">
+    <session id="-614748162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="1702" />
-          <entry key="h" value="941" />
+          <entry key="cpp" value="766" />
+          <entry key="h" value="601" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2643" />
+          <entry key="ObjectiveC" value="1367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="h" value="7" />
+          <entry key="h" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="7" />
+          <entry key="ObjectiveC" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -56,13 +57,32 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="795">
-                  <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+                <state relative-caret-position="274">
+                  <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Observable.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="323">
+                  <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#14#31#0" expanded="true" />
+                    <element signature="e#60#70#0" expanded="true" />
+                    <element signature="e#23#35#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -73,14 +93,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/BankAccount.h">
+            <entry file="file://$PROJECT_DIR$/Observer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="591">
-                  <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#14#32#0" expanded="true" />
-                    <element signature="e#469#909#1" />
-                  </folding>
+                <state relative-caret-position="119">
+                  <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
                 </state>
               </provider>
             </entry>
@@ -95,10 +111,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/StoredMemento.h" />
-        <option value="$PROJECT_DIR$/ExternalMemento.h" />
-        <option value="$PROJECT_DIR$/BankAccount.h" />
+        <option value="$PROJECT_DIR$/Observer.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Observable.h" />
       </list>
     </option>
   </component>
@@ -127,8 +142,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Memento" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Memento" type="462c0819:PsiDirectoryNode" />
+              <item name="Observer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Observer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -154,20 +169,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Memento">
+  <component name="RunManager" selected="Application.Observer">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Memento" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Memento" TARGET_NAME="Memento" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Memento" RUN_TARGET_NAME="Memento">
+    <configuration name="Observer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Observer" TARGET_NAME="Observer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Observer" RUN_TARGET_NAME="Observer">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Build All" />
-      <item itemvalue="Application.Memento" />
+      <item itemvalue="Application.Observer" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -175,17 +190,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fcb56562-2bca-4371-a69b-3164e41122af" name="Default Changelist" comment="" />
-      <created>1539779001765</created>
+      <changelist id="96dae59b-ad23-487a-b3dc-c439950346e6" name="Default Changelist" comment="" />
+      <created>1539795367952</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1539779001765</updated>
-      <workItem from="1539779004584" duration="6020000" />
+      <updated>1539795367952</updated>
+      <workItem from="1539795371128" duration="2533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6020000" />
+    <option name="totallyTimeSpent" value="2533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
@@ -197,12 +212,12 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Messages" weight="0.32952183" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32952183" />
+      <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -223,31 +238,29 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/StoredMemento.h">
+    <entry file="file://$PROJECT_DIR$/Observer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="57" selection-end-column="2" />
-          <folding>
-            <element signature="e#14#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BankAccount.h">
+    <entry file="file://$PROJECT_DIR$/Observable.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
-            <element signature="e#14#32#0" expanded="true" />
-            <element signature="e#469#909#1" />
+            <element signature="e#14#31#0" expanded="true" />
+            <element signature="e#60#70#0" expanded="true" />
+            <element signature="e#23#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+        <state relative-caret-position="274">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
